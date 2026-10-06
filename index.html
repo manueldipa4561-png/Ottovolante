@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ottovolante — video bureau</title>
+  <meta name="description" content="Ottovolante is a fictional Italian video bureau: spots, brand films and motion that make your stomach drop. A concept by Punto Due Studio.">
+  <meta name="theme-color" content="#FF4A1C">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- film-leader countdown -->
+  <div id="loader" aria-hidden="true">
+    <div class="ld-disc"><i class="ld-sweep"></i><i class="ld-cross"></i><b id="ld-num">8</b></div>
+    <p class="ld-cap"><span>Ottovolante</span><span>Rolling in…</span></p>
+  </div>
+
+  <div id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
+
+  <!-- the rollercoaster: drawn by js/track.js, rides your scroll -->
+  <svg id="track" aria-hidden="true"><g id="trackg"><path id="track-ties"/><path id="track-rail"/><g id="train"></g></g></svg>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" data-cursor="link">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 36c8 0 10-24 18-24s8 24 18 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="24" cy="12" r="4.5" fill="currentColor"/></svg>
+      Ottovolante
+    </a>
+    <nav>
+      <a href="#work" data-cursor="link">Work</a>
+      <a href="#bureau" data-cursor="link">Bureau</a>
+      <a href="#giro" data-cursor="link">Il giro</a>
+      <a href="#ciao" class="pill" data-cursor="link">Ciao <span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: giant wordmark + showreel capsule that expands to fullscreen -->
+    <section class="hero" id="hero">
+      <div class="stage">
+        <div class="reel" id="reel">
+          <video id="reel-video" src="assets/video/quattro-ruote.mp4" poster="assets/img/quattro-ruote.jpg" autoplay muted loop playsinline preload="auto"></video>
+          <div class="reel-tag"><span>Showreel ’26</span><span>Scroll to ride ↓</span></div>
+        </div>
+        <h1 class="mega" id="mega" aria-label="Ottovolante">
+          <span class="row r1"><span class="word" data-split>OTTO</span><span class="slot" id="slot"></span></span>
+          <span class="row r2"><span class="word" data-split>VOLANTE</span></span>
+        </h1>
+        <div class="hero-foot">
+          <p class="lede">Video bureau for brands that don’t believe in straight lines. Spots, brand films, music videos &amp; motion.</p>
+          <p class="meta">Bologna, IT<br>44.4949° N · 11.3426° E</p>
+        </div>
+        <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="circ" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+          <text><textPath href="#circ" startOffset="0">OTTOVOLANTE • BUREAU DI VIDEO • BOLOGNA • EST. 2018 •</textPath></text>
+          <path d="M82 70v60l50-30z" fill="currentColor"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ticker -->
+    <section class="ticker" aria-hidden="true">
+      <div class="tk" data-dir="-1"><div class="tk-in">
+        <span>Spots</span><i>✺</i><span>Brand films</span><i>✺</i><span>Music videos</span><i>✺</i><span>Social</span><i>✺</i><span>Motion</span><i>✺</i><span>Post</span><i>✺</i>
+      </div></div>
+    </section>
+
+    <!-- manifesto -->
+    <section class="manifesto" id="bureau">
+      <p class="kicker" data-reveal>(01) Il bureau</p>
+      <p class="mani" id="mani">We make films that drop your stomach and lift your numbers. A slow climb, a held breath, the loop nobody saw coming. Every frame is a ride, and we never build the straight ones.</p>
+      <div class="stats">
+        <div data-reveal><b class="count" data-to="8">0</b><span>years on the track</span></div>
+        <div data-reveal><b class="count" data-to="212">0</b><span>films shipped</span></div>
+        <div data-reveal><b class="count" data-to="0">0</b><span>straight lines</span></div>
+      </div>
+    </section>
+
+    <!-- work index -->
+    <section class="work" id="work">
+      <header class="work-head">
+        <p class="kicker" data-reveal>(02) Selected films</p>
+        <h2 data-reveal>Six rides<br><em>worth the queue.</em></h2>
+      </header>
+      <ol class="index" id="index"></ol>
+      <div class="preview" id="preview" aria-hidden="true"></div>
+    </section>
+
+    <!-- process -->
+    <section class="giro" id="giro">
+      <div class="giro-head">
+        <p class="kicker" data-reveal>(03) Il giro</p>
+        <h2 data-reveal>How a ride<br><em>gets built.</em></h2>
+      </div>
+      <ol class="steps">
+        <li data-reveal><b>01</b><div><h3>Brief</h3><p>The queue. We listen, ask the awkward questions and find the one feeling your film has to deliver.</p></div></li>
+        <li data-reveal><b>02</b><div><h3>Storyboard</h3><p>The climb. Boards, frames and a rhythm map: where it slows down, where it drops.</p></div></li>
+        <li data-reveal><b>03</b><div><h3>Shoot</h3><p>The drop. Small crews, big lenses, zero fear. Practical effects before pixels, always.</p></div></li>
+        <li data-reveal><b>04</b><div><h3>Cut</h3><p>The loop. Edit, grade, sound — plus a version for every screen you’ll ride on.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- clients -->
+    <section class="clients" aria-label="Clients">
+      <div class="tk" data-dir="1"><div class="tk-in">
+        <span>Caffè Marcello</span><i>✺</i><span>Veloce</span><i>✺</i><span>Acqua di Nerea</span><i>✺</i><span>Lia Montrésor</span><i>✺</i><span>Lancetta</span><i>✺</i><span>Osteria Brace</span><i>✺</i>
+      </div></div>
+    </section>
+
+    <!-- contact -->
+    <section class="ciao" id="ciao">
+      <p class="kicker" data-reveal>(04) Ciao</p>
+      <h2 class="big" data-reveal>Hop on?</h2>
+      <a class="mail" href="mailto:ciao@ottovolante.example" data-cursor="link">ciao@ottovolante.example</a>
+      <a class="cta" href="mailto:ciao@ottovolante.example" data-cursor="ticket"><span>Book a ride</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>© 2026 Ottovolante S.r.l. — a fictional bureau</p>
+    <p>Concept by <strong>Punto Due Studio</strong></p>
+    <a href="#top" data-cursor="link">Back to the start ↑</a>
+  </footer>
+
+  <!-- project lightbox -->
+  <div id="lightbox" aria-hidden="true">
+    <div class="lb-media" id="lb-media"></div>
+    <button class="lb-close" id="lb-close" type="button" data-cursor="link">Close <span aria-hidden="true">✕</span></button>
+    <div class="lb-cap"><p class="lb-n" id="lb-n"></p><h3 id="lb-t"></h3><p class="lb-m" id="lb-m"></p></div>
+    <div class="lb-nav"><button type="button" id="lb-prev" data-cursor="link" aria-label="Previous">←</button><button type="button" id="lb-next" data-cursor="link" aria-label="Next">→</button></div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/work.js"></script>
+</body>
+</html>
